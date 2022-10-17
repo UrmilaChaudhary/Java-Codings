@@ -4,6 +4,8 @@
  */
 
 package MultiD_Array;
+
+//importing Scanner
 import java.util.*;
 public class Addition_Matrix {
 
@@ -12,9 +14,11 @@ public class Addition_Matrix {
 		int a, b, i, j;
 		Scanner sc = new Scanner(System.in);
 		
+		//Taking inputfrom user for first matrix row
 		System.out.println("Enter first matrix row");
 		a = sc.nextInt();
 		
+		//Taking inputfrom user for first matrix columns
 		System.out.println("Enter first matrix column");
 		b = sc.nextInt();
 		
