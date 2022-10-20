@@ -1,4 +1,8 @@
 package array;
+/* Q:- WAP to Enter even number in array and print in AscendingOrder 
+ * name : Urmila Chaudhary
+ * Date : 20-10-22
+ */
 
 import java.util.Arrays;
 import java.util.Scanner;
