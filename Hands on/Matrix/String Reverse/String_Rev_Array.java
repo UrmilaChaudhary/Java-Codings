@@ -1,4 +1,8 @@
 package array;
+/* Program to print Reverse of String
+ * Name : Urmila Chaudhary
+ * Date : 21-10-22
+ */
 
 import java.util.Scanner;
 
