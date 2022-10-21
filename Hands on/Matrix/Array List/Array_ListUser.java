@@ -1,4 +1,8 @@
 package array;
+/* Q:- WAP to demonstrate Array list
+ * Name : Urmila Chaudhary
+ * Date : 21-10-22
+ */
 
 import java.util.ArrayList;
 import java.util.Scanner;
