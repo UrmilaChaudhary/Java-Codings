@@ -1,0 +1,108 @@
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| students           |
+| sys                |
++--------------------+
+5 rows in set (2.63 sec)
+
+mysql> use students;
+Database changed
+mysql> show tables
+    -> show tables^C
+mysql> show tables;
++--------------------+
+| Tables_in_students |
++--------------------+
+| information        |
+| patient            |
++--------------------+
+2 rows in set (0.81 sec)
+
+**********************************************
+mysql> select * from information;
++-----+--------+----------+
+| id  | name   | address  |
++-----+--------+----------+
+| 201 | Umrila | Kurla    |
+| 202 | Rakhi  | Thane    |
+| 203 | Ritika | CST      |
+| 204 | Nikita | Varanasi |
++-----+--------+----------+
+4 rows in set (0.18 sec)
+
+mysql> select * from patient;
++-----+---------+----------+
+| id  | name    | City     |
++-----+---------+----------+
+| 101 | Runchi  | Mumbai   |
+| 102 | Sunita  | Pune     |
+| 103 | Sankshi | indore   |
+| 104 | Nikita  | Varanasi |
+| 105 | Rishika | Jabalpur |
++-----+---------+----------+
+5 rows in set (0.10 sec)
+***************************************************
+mysql> select information.name, information.address, patient.name from patient
+    -> INNER JOIN information
+    -> ON information.name = patient.name;
++--------+----------+--------+
+| name   | address  | name   |
++--------+----------+--------+
+| Nikita | Varanasi | Nikita |
++--------+----------+--------+
+1 row in set (0.04 sec)
+************************************************
+mysql> select information.name, information.address, patient.name from patient
+    -> LEFT JOIN information
+    -> ON information.name = patient.name;
++--------+----------+---------+
+| name   | address  | name    |
++--------+----------+---------+
+| NULL   | NULL     | Runchi  |
+| NULL   | NULL     | Sunita  |
+| NULL   | NULL     | Sankshi |
+| Nikita | Varanasi | Nikita  |
+| NULL   | NULL     | Rishika |
++--------+----------+---------+
+5 rows in set (0.01 sec)
+*********************************************
+mysql> select information.name, information.address, patient.name from patient
+    -> RIGHT JOIN information
+    -> ON information.name = patient.name;
++--------+----------+--------+
+| name   | address  | name   |
++--------+----------+--------+
+| Umrila | Kurla    | NULL   |
+| Rakhi  | Thane    | NULL   |
+| Ritika | CST      | NULL   |
+| Nikita | Varanasi | Nikita |
++--------+----------+--------+
+4 rows in set (0.00 sec)
+**************************************************
+mysql> select information.name, information.address, patient.name from patient
+    -> CROSS JOIN information
+    -> ON information.name = patient.name;
++--------+----------+--------+
+| name   | address  | name   |
++--------+----------+--------+
+| Nikita | Varanasi | Nikita |
++--------+----------+--------+
+1 row in set (0.00 sec)
